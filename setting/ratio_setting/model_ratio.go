@@ -15,6 +15,16 @@ const (
 	RMB     = USD / USD2RMB
 )
 
+// HiddenModelRatio 隐式 token 倍率，用户不可见。
+// W 作用于所有 token 计数，B 是每请求固定加成（等价 token 数）。
+// 默认 W=1.0, B=0，与不配置等价。
+type HiddenModelRatio struct {
+	W float64 `json:"w"`
+	B float64 `json:"b"`
+}
+
+var hiddenModelRatioMap = types.NewRWMap[string, HiddenModelRatio]()
+
 // modelRatio
 // https://platform.openai.com/docs/models/model-endpoint-compatibility
 // https://cloud.baidu.com/doc/WENXINWORKSHOP/s/Blfmc9dlf
@@ -496,6 +506,15 @@ func GetCompletionRatioInfo(name string) CompletionRatioInfo {
 	}
 }
 
+// GetHiddenModelRatio 返回模型的隐式倍率。若未配置则返回默认 {W: 1.0, B: 0}
+func GetHiddenModelRatio(name string) HiddenModelRatio {
+	name = FormatMatchingModelName(name)
+	if r, ok := hiddenModelRatioMap.Get(name); ok {
+		return r
+	}
+	return HiddenModelRatio{W: 1.0, B: 0}
+}
+
 func getHardcodedCompletionModelRatio(name string) (float64, bool) {
 
 	isReservedModel := strings.HasSuffix(name, "-all") || strings.HasSuffix(name, "-gizmo-*")
@@ -656,6 +675,14 @@ func ContainsAudioCompletionRatio(name string) bool {
 
 func ModelRatio2JSONString() string {
 	return modelRatioMap.MarshalJSONString()
+}
+
+func HiddenModelRatio2JSONString() string {
+	return hiddenModelRatioMap.MarshalJSONString()
+}
+
+func UpdateHiddenModelRatioByJSONString(jsonStr string) error {
+	return types.LoadFromJsonString(hiddenModelRatioMap, jsonStr)
 }
 
 var defaultImageRatio = map[string]float64{
