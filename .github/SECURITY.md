@@ -12,12 +12,10 @@
 
 We provide security updates for the following versions:
 
-
 | Version | Supported          |
 | ------- | ------------------ |
 | Latest  | :white_check_mark: |
 | Older   | :x:                |
-
 
 We strongly recommend that users always use the latest version for the best security and features.
 
@@ -58,7 +56,7 @@ To help us understand and resolve the issue more quickly, please include the fol
 
 ## Security Best Practices
 
-When deploying and using New API, we recommend following these security best practices:
+When deploying and using 智恋 API, we recommend following these security best practices:
 
 ### Deployment Security
 

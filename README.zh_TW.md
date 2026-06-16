@@ -2,7 +2,7 @@
 
 ![new-api](/web/default/public/logo.png)
 
-# New API
+# 智恋 API
 
 🍥 **新一代大模型網關與AI資產管理系統**
 
@@ -38,7 +38,7 @@
     <img src="https://api.hellogithub.com/v1/widgets/recommend.svg?rid=539ac4217e69431684ad4a0bab768811&claim_uid=tbFPfKIDHpc4TzR" alt="Featured｜HelloGitHub" style="width: 250px; height: 54px;" width="250" height="54" />
   </a>
   <a href="https://www.producthunt.com/products/new-api/launches/new-api?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-new-api" target="_blank" rel="noopener noreferrer">
-    <img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1047693&theme=light&t=1769577875005" alt="New API - All-in-one AI asset management gateway. | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" />
+    <img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1047693&theme=light&t=1769577875005" alt="智恋 API - All-in-one AI asset management gateway. | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" />
   </a>
 </p>
 
@@ -55,6 +55,7 @@
 ## 📝 項目說明
 
 > [!IMPORTANT]
+>
 > - 本專案僅面向合法授權的 AI API 閘道、組織內部鑑權、多模型管理、用量統計、成本核算和私有化部署場景。
 > - 使用者必須合法取得上游 API Key、帳號、模型服務或介面權限，並遵守上游服務條款及適用法律法規。
 > - 使用者應確保其使用方式符合上游服務條款及適用法律法規。
@@ -169,13 +170,13 @@ docker run --name new-api -d --restart always \
 
 **快速導航：**
 
-| 分類 | 連結 |
-|------|------|
-| 🚀 部署指南 | [安裝文件](https://docs.newapi.pro/zh/docs/installation) |
+| 分類        | 連結                                                                                              |
+| ----------- | ------------------------------------------------------------------------------------------------- |
+| 🚀 部署指南 | [安裝文件](https://docs.newapi.pro/zh/docs/installation)                                          |
 | ⚙️ 環境配置 | [環境變數](https://docs.newapi.pro/zh/docs/installation/config-maintenance/environment-variables) |
-| 📡 接口文件 | [API 文件](https://docs.newapi.pro/zh/docs/api) |
-| ❓ 常見問題 | [FAQ](https://docs.newapi.pro/zh/docs/support/faq) |
-| 💬 社群交流 | [交流管道](https://docs.newapi.pro/zh/docs/support/community-interaction) |
+| 📡 接口文件 | [API 文件](https://docs.newapi.pro/zh/docs/api)                                                   |
+| ❓ 常見問題 | [FAQ](https://docs.newapi.pro/zh/docs/support/faq)                                                |
+| 💬 社群交流 | [交流管道](https://docs.newapi.pro/zh/docs/support/community-interaction)                         |
 
 ---
 
@@ -185,13 +186,13 @@ docker run --name new-api -d --restart always \
 
 ### 🎨 核心功能
 
-| 特性 | 說明 |
-|------|------|
-| 🎨 全新 UI | 現代化的用戶界面設計 |
-| 🌍 多語言 | 支援簡體中文、繁體中文、英文、法語、日語 |
-| 🔄 數據兼容 | 完全兼容原版 One API 資料庫 |
-| 📈 數據看板 | 視覺化控制檯與統計分析 |
-| 🔒 權限管理 | 令牌分組、模型限制、用戶管理 |
+| 特性        | 說明                                     |
+| ----------- | ---------------------------------------- |
+| 🎨 全新 UI  | 現代化的用戶界面設計                     |
+| 🌍 多語言   | 支援簡體中文、繁體中文、英文、法語、日語 |
+| 🔄 數據兼容 | 完全兼容原版 One API 資料庫              |
+| 📈 數據看板 | 視覺化控制檯與統計分析                   |
+| 🔒 權限管理 | 令牌分組、模型限制、用戶管理             |
 
 ### 💰 授權用量與成本管理
 
@@ -211,6 +212,7 @@ docker run --name new-api -d --restart always \
 ### 🚀 高級功能
 
 **API 格式支援：**
+
 - ⚡ [OpenAI Responses](https://docs.newapi.pro/zh/docs/api/ai-model/chat/openai/create-response)
 - ⚡ [OpenAI Realtime API](https://docs.newapi.pro/zh/docs/api/ai-model/realtime/create-realtime-session)（含 Azure）
 - ⚡ [Claude Messages](https://docs.newapi.pro/zh/docs/api/ai-model/chat/create-message)
@@ -218,11 +220,13 @@ docker run --name new-api -d --restart always \
 - 🔄 [Rerank 模型](https://docs.newapi.pro/zh/docs/api/ai-model/rerank/create-rerank)（Cohere、Jina）
 
 **智慧路由：**
+
 - ⚖️ 管道加權隨機
 - 🔄 失敗自動重試
 - 🚦 用戶級別模型限流
 
 **格式轉換：**
+
 - 🔄 **OpenAI Compatible ⇄ Claude Messages**
 - 🔄 **OpenAI Compatible → Google Gemini**
 - 🔄 **Google Gemini → OpenAI Compatible** - 僅支援文本，暫不支援函數調用
@@ -235,6 +239,7 @@ docker run --name new-api -d --restart always \
 <summary>查看詳細配置</summary>
 
 **OpenAI 系列模型：**
+
 - `o3-mini-high` - High reasoning effort
 - `o3-mini-medium` - Medium reasoning effort
 - `o3-mini-low` - Low reasoning effort
@@ -243,9 +248,11 @@ docker run --name new-api -d --restart always \
 - `gpt-5-low` - Low reasoning effort
 
 **Claude 思考模型：**
+
 - `claude-3-7-sonnet-20250219-thinking` - 啟用思考模式
 
 **Google Gemini 系列模型：**
+
 - `gemini-2.5-flash-thinking` - 啟用思考模式
 - `gemini-2.5-flash-nothinking` - 禁用思考模式
 - `gemini-2.5-pro-thinking` - 啟用思考模式
@@ -260,17 +267,17 @@ docker run --name new-api -d --restart always \
 
 > 詳情請參考 [接口文件 - 閘道接口](https://docs.newapi.pro/zh/docs/api)
 
-| 模型類型 | 說明 | 文件 |
-|---------|------|------|
-| 🤖 OpenAI-Compatible | OpenAI 兼容模型 | [文件](https://docs.newapi.pro/zh/docs/api/ai-model/chat/openai/createchatcompletion) |
-| 🤖 OpenAI Responses | OpenAI Responses 格式 | [文件](https://docs.newapi.pro/zh/docs/api/ai-model/chat/openai/createresponse) |
-| 🎨 Midjourney-Proxy | [Midjourney-Proxy(Plus)](https://github.com/novicezk/midjourney-proxy) | [文件](https://doc.newapi.pro/api/midjourney-proxy-image) |
-| 🎵 Suno-API | [Suno API](https://github.com/Suno-API/Suno-API) | [文件](https://doc.newapi.pro/api/suno-music) |
-| 🔄 Rerank | Cohere、Jina | [文件](https://docs.newapi.pro/zh/docs/api/ai-model/rerank/create-rerank) |
-| 💬 Claude | Messages 格式 | [文件](https://docs.newapi.pro/zh/docs/api/ai-model/chat/createmessage) |
-| 🌐 Gemini | Google Gemini 格式 | [文件](https://docs.newapi.pro/zh/docs/api/ai-model/chat/gemini/geminirelayv1beta) |
-| 🔧 Dify | ChatFlow 模式 | - |
-| 🎯 自訂上游 | 支援配置合法授權的上游介面位址 | - |
+| 模型類型             | 說明                                                                   | 文件                                                                                  |
+| -------------------- | ---------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| 🤖 OpenAI-Compatible | OpenAI 兼容模型                                                        | [文件](https://docs.newapi.pro/zh/docs/api/ai-model/chat/openai/createchatcompletion) |
+| 🤖 OpenAI Responses  | OpenAI Responses 格式                                                  | [文件](https://docs.newapi.pro/zh/docs/api/ai-model/chat/openai/createresponse)       |
+| 🎨 Midjourney-Proxy  | [Midjourney-Proxy(Plus)](https://github.com/novicezk/midjourney-proxy) | [文件](https://doc.newapi.pro/api/midjourney-proxy-image)                             |
+| 🎵 Suno-API          | [Suno API](https://github.com/Suno-API/Suno-API)                       | [文件](https://doc.newapi.pro/api/suno-music)                                         |
+| 🔄 Rerank            | Cohere、Jina                                                           | [文件](https://docs.newapi.pro/zh/docs/api/ai-model/rerank/create-rerank)             |
+| 💬 Claude            | Messages 格式                                                          | [文件](https://docs.newapi.pro/zh/docs/api/ai-model/chat/createmessage)               |
+| 🌐 Gemini            | Google Gemini 格式                                                     | [文件](https://docs.newapi.pro/zh/docs/api/ai-model/chat/gemini/geminirelayv1beta)    |
+| 🔧 Dify              | ChatFlow 模式                                                          | -                                                                                     |
+| 🎯 自訂上游          | 支援配置合法授權的上游介面位址                                         | -                                                                                     |
 
 ### 📡 支援的接口
 
@@ -299,35 +306,35 @@ docker run --name new-api -d --restart always \
 
 ### 📋 部署要求
 
-| 組件 | 要求 |
-|------|------|
-| **本地資料庫** | SQLite（Docker 需掛載 `/data` 目錄）|
-| **遠端資料庫** | MySQL ≥ 5.7.8 或 PostgreSQL ≥ 9.6 |
-| **容器引擎** | Docker / Docker Compose |
+| 組件           | 要求                                 |
+| -------------- | ------------------------------------ |
+| **本地資料庫** | SQLite（Docker 需掛載 `/data` 目錄） |
+| **遠端資料庫** | MySQL ≥ 5.7.8 或 PostgreSQL ≥ 9.6    |
+| **容器引擎**   | Docker / Docker Compose              |
 
 ### ⚙️ 環境變數配置
 
 <details>
 <summary>常用環境變數配置</summary>
 
-| 變數名 | 說明                                                           | 預設值 |
-|--------|--------------------------------------------------------------|--------|
-| `SESSION_SECRET` | 會話密鑰（多機部署必須）                                                 | - |
-| `CRYPTO_SECRET` | 加密密鑰（Redis 必須）                                               | - |
-| `SQL_DSN` | 資料庫連接字符串                                                     | - |
-| `REDIS_CONN_STRING` | Redis 連接字符串                                                  | - |
-| `STREAMING_TIMEOUT` | 流式超時時間（秒）                                                    | `300` |
-| `STREAM_SCANNER_MAX_BUFFER_MB` | 流式掃描器單行最大緩衝（MB），圖像生成等超大 `data:` 片段（如 4K 圖片 base64）需適當調大 | `64` |
-| `MAX_REQUEST_BODY_MB` | 請求體最大大小（MB，**解壓縮後**計；防止超大請求/zip bomb 導致記憶體暴漲），超過將返回 `413` | `32` |
-| `AZURE_DEFAULT_API_VERSION` | Azure API 版本                                                 | `2025-04-01-preview` |
-| `ERROR_LOG_ENABLED` | 錯誤日誌開關                                                       | `false` |
-| `PYROSCOPE_URL` | Pyroscope 服務位址                                            | - |
-| `PYROSCOPE_APP_NAME` | Pyroscope 應用名                                        | `new-api` |
-| `PYROSCOPE_BASIC_AUTH_USER` | Pyroscope Basic Auth 用戶名                        | - |
-| `PYROSCOPE_BASIC_AUTH_PASSWORD` | Pyroscope Basic Auth 密碼                  | - |
-| `PYROSCOPE_MUTEX_RATE` | Pyroscope mutex 採樣率                               | `5` |
-| `PYROSCOPE_BLOCK_RATE` | Pyroscope block 採樣率                               | `5` |
-| `HOSTNAME` | Pyroscope 標籤裡的主機名                                          | `new-api` |
+| 變數名                          | 說明                                                                                         | 預設值               |
+| ------------------------------- | -------------------------------------------------------------------------------------------- | -------------------- |
+| `SESSION_SECRET`                | 會話密鑰（多機部署必須）                                                                     | -                    |
+| `CRYPTO_SECRET`                 | 加密密鑰（Redis 必須）                                                                       | -                    |
+| `SQL_DSN`                       | 資料庫連接字符串                                                                             | -                    |
+| `REDIS_CONN_STRING`             | Redis 連接字符串                                                                             | -                    |
+| `STREAMING_TIMEOUT`             | 流式超時時間（秒）                                                                           | `300`                |
+| `STREAM_SCANNER_MAX_BUFFER_MB`  | 流式掃描器單行最大緩衝（MB），圖像生成等超大 `data:` 片段（如 4K 圖片 base64）需適當調大     | `64`                 |
+| `MAX_REQUEST_BODY_MB`           | 請求體最大大小（MB，**解壓縮後**計；防止超大請求/zip bomb 導致記憶體暴漲），超過將返回 `413` | `32`                 |
+| `AZURE_DEFAULT_API_VERSION`     | Azure API 版本                                                                               | `2025-04-01-preview` |
+| `ERROR_LOG_ENABLED`             | 錯誤日誌開關                                                                                 | `false`              |
+| `PYROSCOPE_URL`                 | Pyroscope 服務位址                                                                           | -                    |
+| `PYROSCOPE_APP_NAME`            | Pyroscope 應用名                                                                             | `new-api`            |
+| `PYROSCOPE_BASIC_AUTH_USER`     | Pyroscope Basic Auth 用戶名                                                                  | -                    |
+| `PYROSCOPE_BASIC_AUTH_PASSWORD` | Pyroscope Basic Auth 密碼                                                                    | -                    |
+| `PYROSCOPE_MUTEX_RATE`          | Pyroscope mutex 採樣率                                                                       | `5`                  |
+| `PYROSCOPE_BLOCK_RATE`          | Pyroscope block 採樣率                                                                       | `5`                  |
+| `HOSTNAME`                      | Pyroscope 標籤裡的主機名                                                                     | `new-api`            |
 
 📖 **完整配置：** [環境變數文件](https://docs.newapi.pro/zh/docs/installation/config-maintenance/environment-variables)
 
@@ -356,6 +363,7 @@ docker-compose up -d
 <summary><strong>方式 2：Docker 命令</strong></summary>
 
 **使用 SQLite：**
+
 ```bash
 docker run --name new-api -d --restart always \
   -p 3000:3000 \
@@ -365,6 +373,7 @@ docker run --name new-api -d --restart always \
 ```
 
 **使用 MySQL：**
+
 ```bash
 docker run --name new-api -d --restart always \
   -p 3000:3000 \
@@ -375,6 +384,7 @@ docker run --name new-api -d --restart always \
 ```
 
 > **💡 路徑說明：**
+>
 > - `./data:/data` - 相對路徑，數據保存在當前目錄的 data 資料夾
 > - 也可使用絕對路徑，如：`/your/custom/path:/data`
 
@@ -394,6 +404,7 @@ docker run --name new-api -d --restart always \
 ### ⚠️ 多機部署注意事項
 
 > [!WARNING]
+>
 > - **必須設置** `SESSION_SECRET` - 否則登錄狀態不一致
 > - **公用 Redis 必須設置** `CRYPTO_SECRET` - 否則數據無法解密
 
@@ -402,6 +413,7 @@ docker run --name new-api -d --restart always \
 **重試配置：** `設置 → 運營設置 → 通用設置 → 失敗重試次數`
 
 **快取配置：**
+
 - `REDIS_CONN_STRING`：Redis 快取（推薦）
 - `MEMORY_CACHE_ENABLED`：記憶體快取
 
@@ -411,17 +423,17 @@ docker run --name new-api -d --restart always \
 
 ### 上游項目
 
-| 項目 | 說明 |
-|------|------|
-| [One API](https://github.com/songquanpeng/one-api) | 原版項目基礎 |
+| 項目                                                             | 說明                |
+| ---------------------------------------------------------------- | ------------------- |
+| [One API](https://github.com/songquanpeng/one-api)               | 原版項目基礎        |
 | [Midjourney-Proxy](https://github.com/novicezk/midjourney-proxy) | Midjourney 接口支援 |
 
 ### 配套工具
 
-| 項目 | 說明 |
-|------|------|
-| [new-api-key-tool](https://github.com/Calcium-Ion/new-api-key-tool) | Key 額度查詢工具 |
-| [new-api-horizon](https://github.com/Calcium-Ion/new-api-horizon) | New API 高性能優化版 |
+| 項目                                                                | 說明                  |
+| ------------------------------------------------------------------- | --------------------- |
+| [new-api-key-tool](https://github.com/Calcium-Ion/new-api-key-tool) | Key 額度查詢工具      |
+| [new-api-horizon](https://github.com/Calcium-Ion/new-api-horizon)   | 智恋 API 高性能優化版 |
 
 ---
 
@@ -429,12 +441,12 @@ docker run --name new-api -d --restart always \
 
 ### 📖 文件資源
 
-| 資源 | 連結 |
-|------|------|
-| 📘 常見問題 | [FAQ](https://docs.newapi.pro/zh/docs/support/faq) |
+| 資源        | 連結                                                                      |
+| ----------- | ------------------------------------------------------------------------- |
+| 📘 常見問題 | [FAQ](https://docs.newapi.pro/zh/docs/support/faq)                        |
 | 💬 社群交流 | [交流管道](https://docs.newapi.pro/zh/docs/support/community-interaction) |
-| 🐛 回饋問題 | [問題回饋](https://docs.newapi.pro/zh/docs/support/feedback-issues) |
-| 📚 完整文件 | [官方文件](https://docs.newapi.pro/zh/docs) |
+| 🐛 回饋問題 | [問題回饋](https://docs.newapi.pro/zh/docs/support/feedback-issues)       |
+| 📚 完整文件 | [官方文件](https://docs.newapi.pro/zh/docs)                               |
 
 ### 🤝 貢獻指南
 
@@ -469,7 +481,7 @@ docker run --name new-api -d --restart always \
 
 <div align="center">
 
-### 💖 感謝使用 New API
+### 💖 感謝使用 智恋 API
 
 如果這個項目對你有幫助，歡迎給我們一個 ⭐️ Star！
 

@@ -2,7 +2,7 @@
 
 ![new-api](/web/default/public/logo.png)
 
-# New API
+# 智恋 API
 
 🍥 **Passerelle de modèles étendus de nouvelle génération et système de gestion d'actifs d'IA**
 
@@ -38,7 +38,7 @@
     <img src="https://api.hellogithub.com/v1/widgets/recommend.svg?rid=539ac4217e69431684ad4a0bab768811&claim_uid=tbFPfKIDHpc4TzR" alt="Featured｜HelloGitHub" style="width: 250px; height: 54px;" width="250" height="54" />
   </a><!--
   --><a href="https://www.producthunt.com/products/new-api/launches/new-api?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-new-api" target="_blank" rel="noopener noreferrer">
-    <img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1047693&theme=light&t=1769577875005" alt="New API - All-in-one AI asset management gateway. | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" />
+    <img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1047693&theme=light&t=1769577875005" alt="智恋 API - All-in-one AI asset management gateway. | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" />
   </a>
 </p>
 
@@ -55,6 +55,7 @@
 ## 📝 Description du projet
 
 > [!IMPORTANT]
+>
 > - Ce projet est exclusivement destiné aux scénarios de passerelle API d'IA légalement autorisés, d'authentification organisationnelle, de gestion multi-modèles, d'analyse d'utilisation, de comptabilisation des coûts et de déploiement privé.
 > - Les utilisateurs doivent obtenir légalement les clés API, comptes, services de modèles et autorisations d'interface en amont, et doivent respecter les conditions d'utilisation en amont et les lois et réglementations applicables.
 > - Les utilisateurs doivent s'assurer que leur utilisation est conforme aux conditions d'utilisation en amont et aux lois et réglementations applicables.
@@ -169,13 +170,13 @@ docker run --name new-api -d --restart always \
 
 **Navigation rapide:**
 
-| Catégorie | Lien |
-|------|------|
-| 🚀 Guide de déploiement | [Documentation d'installation](https://docs.newapi.pro/en/docs/installation) |
+| Catégorie                           | Lien                                                                                                               |
+| ----------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| 🚀 Guide de déploiement             | [Documentation d'installation](https://docs.newapi.pro/en/docs/installation)                                       |
 | ⚙️ Configuration de l'environnement | [Variables d'environnement](https://docs.newapi.pro/en/docs/installation/config-maintenance/environment-variables) |
-| 📡 Documentation de l'API | [Documentation de l'API](https://docs.newapi.pro/en/docs/api) |
-| ❓ FAQ | [FAQ](https://docs.newapi.pro/en/docs/support/faq) |
-| 💬 Interaction avec la communauté | [Canaux de communication](https://docs.newapi.pro/en/docs/support/community-interaction) |
+| 📡 Documentation de l'API           | [Documentation de l'API](https://docs.newapi.pro/en/docs/api)                                                      |
+| ❓ FAQ                              | [FAQ](https://docs.newapi.pro/en/docs/support/faq)                                                                 |
+| 💬 Interaction avec la communauté   | [Canaux de communication](https://docs.newapi.pro/en/docs/support/community-interaction)                           |
 
 ---
 
@@ -185,13 +186,13 @@ docker run --name new-api -d --restart always \
 
 ### 🎨 Fonctions principales
 
-| Fonctionnalité | Description |
-|------|------|
-| 🎨 Nouvelle interface utilisateur | Conception d'interface utilisateur moderne |
-| 🌍 Multilingue | Prend en charge le chinois simplifié, le chinois traditionnel, l'anglais, le français et le japonais |
-| 🔄 Compatibilité des données | Complètement compatible avec la base de données originale de One API |
-| 📈 Tableau de bord des données | Console visuelle et analyse statistique |
-| 🔒 Gestion des permissions | Regroupement de jetons, restrictions de modèles, gestion des utilisateurs |
+| Fonctionnalité                    | Description                                                                                          |
+| --------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| 🎨 Nouvelle interface utilisateur | Conception d'interface utilisateur moderne                                                           |
+| 🌍 Multilingue                    | Prend en charge le chinois simplifié, le chinois traditionnel, l'anglais, le français et le japonais |
+| 🔄 Compatibilité des données      | Complètement compatible avec la base de données originale de One API                                 |
+| 📈 Tableau de bord des données    | Console visuelle et analyse statistique                                                              |
+| 🔒 Gestion des permissions        | Regroupement de jetons, restrictions de modèles, gestion des utilisateurs                            |
 
 ### 💰 Comptabilisation et facturation des usages autorisés
 
@@ -211,6 +212,7 @@ docker run --name new-api -d --restart always \
 ### 🚀 Fonctionnalités avancées
 
 **Prise en charge des formats d'API:**
+
 - ⚡ [OpenAI Responses](https://docs.newapi.pro/en/docs/api/ai-model/chat/openai/create-response)
 - ⚡ [OpenAI Realtime API](https://docs.newapi.pro/en/docs/api/ai-model/realtime/create-realtime-session) (y compris Azure)
 - ⚡ [Claude Messages](https://docs.newapi.pro/en/docs/api/ai-model/chat/create-message)
@@ -218,11 +220,13 @@ docker run --name new-api -d --restart always \
 - 🔄 [Modèles Rerank](https://docs.newapi.pro/en/docs/api/ai-model/rerank/create-rerank) (Cohere, Jina)
 
 **Routage intelligent:**
+
 - ⚖️ Sélection aléatoire pondérée des canaux
 - 🔄 Nouvelle tentative automatique en cas d'échec
 - 🚦 Limitation du débit du modèle pour les utilisateurs
 
 **Conversion de format:**
+
 - 🔄 **OpenAI Compatible ⇄ Claude Messages**
 - 🔄 **OpenAI Compatible → Google Gemini**
 - 🔄 **Google Gemini → OpenAI Compatible** - Texte uniquement, les appels de fonction ne sont pas encore pris en charge
@@ -235,6 +239,7 @@ docker run --name new-api -d --restart always \
 <summary>Voir la configuration détaillée</summary>
 
 **Modèles de la série OpenAI :**
+
 - `o3-mini-high` - Effort de raisonnement élevé
 - `o3-mini-medium` - Effort de raisonnement moyen
 - `o3-mini-low` - Effort de raisonnement faible
@@ -243,9 +248,11 @@ docker run --name new-api -d --restart always \
 - `gpt-5-low` - Effort de raisonnement faible
 
 **Modèles de pensée de Claude:**
+
 - `claude-3-7-sonnet-20250219-thinking` - Activer le mode de pensée
 
 **Modèles de la série Google Gemini:**
+
 - `gemini-2.5-flash-thinking` - Activer le mode de pensée
 - `gemini-2.5-flash-nothinking` - Désactiver le mode de pensée
 - `gemini-2.5-pro-thinking` - Activer le mode de pensée
@@ -260,17 +267,17 @@ docker run --name new-api -d --restart always \
 
 > Pour les détails, veuillez vous référer à [Documentation de l'API - Interface de passerelle](https://docs.newapi.pro/en/docs/api)
 
-| Type de modèle | Description | Documentation |
-|---------|------|------|
-| 🤖 OpenAI-Compatible | Modèles compatibles OpenAI | [Documentation](https://docs.newapi.pro/en/docs/api/ai-model/chat/openai/createchatcompletion) |
-| 🤖 OpenAI Responses | Format OpenAI Responses | [Documentation](https://docs.newapi.pro/en/docs/api/ai-model/chat/openai/createresponse) |
-| 🎨 Midjourney-Proxy | [Midjourney-Proxy(Plus)](https://github.com/novicezk/midjourney-proxy) | [Documentation](https://doc.newapi.pro/api/midjourney-proxy-image) |
-| 🎵 Suno-API | [Suno API](https://github.com/Suno-API/Suno-API) | [Documentation](https://doc.newapi.pro/api/suno-music) |
-| 🔄 Rerank | Cohere, Jina | [Documentation](https://docs.newapi.pro/en/docs/api/ai-model/rerank/creatererank) |
-| 💬 Claude | Format Messages | [Documentation](https://docs.newapi.pro/en/docs/api/ai-model/chat/createmessage) |
-| 🌐 Gemini | Format Google Gemini | [Documentation](https://docs.newapi.pro/en/docs/api/ai-model/chat/gemini/geminirelayv1beta) |
-| 🔧 Dify | Mode ChatFlow | - |
-| 🎯 Amont personnalisé | Configuration des points d'accès amont légalement autorisés | - |
+| Type de modèle        | Description                                                            | Documentation                                                                                  |
+| --------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| 🤖 OpenAI-Compatible  | Modèles compatibles OpenAI                                             | [Documentation](https://docs.newapi.pro/en/docs/api/ai-model/chat/openai/createchatcompletion) |
+| 🤖 OpenAI Responses   | Format OpenAI Responses                                                | [Documentation](https://docs.newapi.pro/en/docs/api/ai-model/chat/openai/createresponse)       |
+| 🎨 Midjourney-Proxy   | [Midjourney-Proxy(Plus)](https://github.com/novicezk/midjourney-proxy) | [Documentation](https://doc.newapi.pro/api/midjourney-proxy-image)                             |
+| 🎵 Suno-API           | [Suno API](https://github.com/Suno-API/Suno-API)                       | [Documentation](https://doc.newapi.pro/api/suno-music)                                         |
+| 🔄 Rerank             | Cohere, Jina                                                           | [Documentation](https://docs.newapi.pro/en/docs/api/ai-model/rerank/creatererank)              |
+| 💬 Claude             | Format Messages                                                        | [Documentation](https://docs.newapi.pro/en/docs/api/ai-model/chat/createmessage)               |
+| 🌐 Gemini             | Format Google Gemini                                                   | [Documentation](https://docs.newapi.pro/en/docs/api/ai-model/chat/gemini/geminirelayv1beta)    |
+| 🔧 Dify               | Mode ChatFlow                                                          | -                                                                                              |
+| 🎯 Amont personnalisé | Configuration des points d'accès amont légalement autorisés            | -                                                                                              |
 
 ### 📡 Interfaces prises en charge
 
@@ -299,35 +306,35 @@ docker run --name new-api -d --restart always \
 
 ### 📋 Exigences de déploiement
 
-| Composant | Exigence |
-|------|------|
-| **Base de données locale** | SQLite (Docker doit monter le répertoire `/data`)|
-| **Base de données distante | MySQL ≥ 5.7.8 ou PostgreSQL ≥ 9.6 |
-| **Moteur de conteneur** | Docker / Docker Compose |
+| Composant                    | Exigence                                          |
+| ---------------------------- | ------------------------------------------------- |
+| **Base de données locale**   | SQLite (Docker doit monter le répertoire `/data`) |
+| \*\*Base de données distante | MySQL ≥ 5.7.8 ou PostgreSQL ≥ 9.6                 |
+| **Moteur de conteneur**      | Docker / Docker Compose                           |
 
 ### ⚙️ Configuration des variables d'environnement
 
 <details>
 <summary>Configuration courante des variables d'environnement</summary>
 
-| Nom de variable | Description | Valeur par défaut |
-|--------|------|--------|
-| `SESSION_SECRET` | Secret de session (requis pour le déploiement multi-machines) |
-| `CRYPTO_SECRET` | Secret de chiffrement (requis pour Redis) | - |
-| `SQL_DSN` | Chaine de connexion à la base de données | - |
-| `REDIS_CONN_STRING` | Chaine de connexion Redis | - |
-| `STREAMING_TIMEOUT` | Délai d'expiration du streaming (secondes) | `300` |
-| `STREAM_SCANNER_MAX_BUFFER_MB` | Taille max du buffer par ligne (Mo) pour le scanner SSE ; à augmenter quand les sorties image/base64 sont très volumineuses (ex. images 4K) | `64` |
-| `MAX_REQUEST_BODY_MB` | Taille maximale du corps de requête (Mo, comptée **après décompression** ; évite les requêtes énormes/zip bombs qui saturent la mémoire). Dépassement ⇒ `413` | `32` |
-| `AZURE_DEFAULT_API_VERSION` | Version de l'API Azure | `2025-04-01-preview` |
-| `ERROR_LOG_ENABLED` | Interrupteur du journal d'erreurs | `false` |
-| `PYROSCOPE_URL` | Adresse du serveur Pyroscope | - |
-| `PYROSCOPE_APP_NAME` | Nom de l'application Pyroscope | `new-api` |
-| `PYROSCOPE_BASIC_AUTH_USER` | Utilisateur Basic Auth Pyroscope | - |
-| `PYROSCOPE_BASIC_AUTH_PASSWORD` | Mot de passe Basic Auth Pyroscope | - |
-| `PYROSCOPE_MUTEX_RATE` | Taux d'échantillonnage mutex Pyroscope | `5` |
-| `PYROSCOPE_BLOCK_RATE` | Taux d'échantillonnage block Pyroscope | `5` |
-| `HOSTNAME` | Nom d'hôte tagué pour Pyroscope | `new-api` |
+| Nom de variable                 | Description                                                                                                                                                   | Valeur par défaut    |
+| ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------- |
+| `SESSION_SECRET`                | Secret de session (requis pour le déploiement multi-machines)                                                                                                 |
+| `CRYPTO_SECRET`                 | Secret de chiffrement (requis pour Redis)                                                                                                                     | -                    |
+| `SQL_DSN`                       | Chaine de connexion à la base de données                                                                                                                      | -                    |
+| `REDIS_CONN_STRING`             | Chaine de connexion Redis                                                                                                                                     | -                    |
+| `STREAMING_TIMEOUT`             | Délai d'expiration du streaming (secondes)                                                                                                                    | `300`                |
+| `STREAM_SCANNER_MAX_BUFFER_MB`  | Taille max du buffer par ligne (Mo) pour le scanner SSE ; à augmenter quand les sorties image/base64 sont très volumineuses (ex. images 4K)                   | `64`                 |
+| `MAX_REQUEST_BODY_MB`           | Taille maximale du corps de requête (Mo, comptée **après décompression** ; évite les requêtes énormes/zip bombs qui saturent la mémoire). Dépassement ⇒ `413` | `32`                 |
+| `AZURE_DEFAULT_API_VERSION`     | Version de l'API Azure                                                                                                                                        | `2025-04-01-preview` |
+| `ERROR_LOG_ENABLED`             | Interrupteur du journal d'erreurs                                                                                                                             | `false`              |
+| `PYROSCOPE_URL`                 | Adresse du serveur Pyroscope                                                                                                                                  | -                    |
+| `PYROSCOPE_APP_NAME`            | Nom de l'application Pyroscope                                                                                                                                | `new-api`            |
+| `PYROSCOPE_BASIC_AUTH_USER`     | Utilisateur Basic Auth Pyroscope                                                                                                                              | -                    |
+| `PYROSCOPE_BASIC_AUTH_PASSWORD` | Mot de passe Basic Auth Pyroscope                                                                                                                             | -                    |
+| `PYROSCOPE_MUTEX_RATE`          | Taux d'échantillonnage mutex Pyroscope                                                                                                                        | `5`                  |
+| `PYROSCOPE_BLOCK_RATE`          | Taux d'échantillonnage block Pyroscope                                                                                                                        | `5`                  |
+| `HOSTNAME`                      | Nom d'hôte tagué pour Pyroscope                                                                                                                               | `new-api`            |
 
 📖 **Configuration complète:** [Documentation des variables d'environnement](https://docs.newapi.pro/en/docs/installation/config-maintenance/environment-variables)
 
@@ -356,6 +363,7 @@ docker-compose up -d
 <summary><strong>Méthode 2: Commandes Docker</strong></summary>
 
 **Utilisation de SQLite:**
+
 ```bash
 docker run --name new-api -d --restart always \
   -p 3000:3000 \
@@ -365,6 +373,7 @@ docker run --name new-api -d --restart always \
 ```
 
 **Utilisation de MySQL:**
+
 ```bash
 docker run --name new-api -d --restart always \
   -p 3000:3000 \
@@ -375,6 +384,7 @@ docker run --name new-api -d --restart always \
 ```
 
 > **💡 Explication du chemin:**
+>
 > - `./data:/data` - Chemin relatif, données sauvegardées dans le dossier data du répertoire actuel
 > - Vous pouvez également utiliser un chemin absolu, par exemple : `/your/custom/path:/data`
 
@@ -394,6 +404,7 @@ docker run --name new-api -d --restart always \
 ### ⚠️ Considérations sur le déploiement multi-machines
 
 > [!WARNING]
+>
 > - **Doit définir** `SESSION_SECRET` - Sinon l'état de connexion sera incohérent sur plusieurs machines
 > - **Redis partagé doit définir** `CRYPTO_SECRET` - Sinon les données ne pourront pas être déchiffrées
 
@@ -402,6 +413,7 @@ docker run --name new-api -d --restart always \
 **Configuration de la nouvelle tentative:** `Paramètres → Paramètres de fonctionnement → Paramètres généraux → Nombre de tentatives en cas d'échec`
 
 **Configuration du cache:**
+
 - `REDIS_CONN_STRING`: Cache Redis (recommandé)
 - `MEMORY_CACHE_ENABLED`: Cache mémoire
 
@@ -411,17 +423,17 @@ docker run --name new-api -d --restart always \
 
 ### Projets en amont
 
-| Projet | Description |
-|------|------|
-| [One API](https://github.com/songquanpeng/one-api) | Base du projet original |
+| Projet                                                           | Description                               |
+| ---------------------------------------------------------------- | ----------------------------------------- |
+| [One API](https://github.com/songquanpeng/one-api)               | Base du projet original                   |
 | [Midjourney-Proxy](https://github.com/novicezk/midjourney-proxy) | Prise en charge de l'interface Midjourney |
 
 ### Outils d'accompagnement
 
-| Projet | Description |
-|------|------|
+| Projet                                                              | Description                                            |
+| ------------------------------------------------------------------- | ------------------------------------------------------ |
 | [new-api-key-tool](https://github.com/Calcium-Ion/new-api-key-tool) | Outil de recherche de quota d'utilisation avec une clé |
-| [new-api-horizon](https://github.com/Calcium-Ion/new-api-horizon) | Version optimisée haute performance de New API |
+| [new-api-horizon](https://github.com/Calcium-Ion/new-api-horizon)   | Version optimisée haute performance de 智恋 API        |
 
 ---
 
@@ -429,12 +441,12 @@ docker run --name new-api -d --restart always \
 
 ### 📖 Ressources de documentation
 
-| Ressource | Lien |
-|------|------|
-| 📘 FAQ | [FAQ](https://docs.newapi.pro/en/docs/support/faq) |
-| 💬 Interaction avec la communauté | [Canaux de communication](https://docs.newapi.pro/en/docs/support/community-interaction) |
+| Ressource                         | Lien                                                                                      |
+| --------------------------------- | ----------------------------------------------------------------------------------------- |
+| 📘 FAQ                            | [FAQ](https://docs.newapi.pro/en/docs/support/faq)                                        |
+| 💬 Interaction avec la communauté | [Canaux de communication](https://docs.newapi.pro/en/docs/support/community-interaction)  |
 | 🐛 Commentaires sur les problèmes | [Commentaires sur les problèmes](https://docs.newapi.pro/en/docs/support/feedback-issues) |
-| 📚 Documentation complète | [Documentation officielle](https://docs.newapi.pro/en/docs) |
+| 📚 Documentation complète         | [Documentation officielle](https://docs.newapi.pro/en/docs)                               |
 
 ### 🤝 Guide de contribution
 
@@ -469,7 +481,7 @@ Si les politiques de votre organisation ne permettent pas l'utilisation de logic
 
 <div align="center">
 
-### 💖 Merci d'utiliser New API
+### 💖 Merci d'utiliser 智恋 API
 
 Si ce projet vous est utile, bienvenue à nous donner une ⭐️ Étoile！
 
