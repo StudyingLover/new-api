@@ -109,6 +109,8 @@ export type ModelRatioData = {
   imageRatio?: string
   audioRatio?: string
   audioCompletionRatio?: string
+  hiddenW?: string
+  hiddenB?: string
   billingMode?: PricingMode
   billingExpr?: string
   requestRuleExpr?: string
@@ -432,6 +434,8 @@ export function ModelPricingEditorPanel({
   })
   const [billingExpr, setBillingExpr] = useState('')
   const [requestRuleExpr, setRequestRuleExpr] = useState('')
+  const [hiddenW, setHiddenW] = useState('')
+  const [hiddenB, setHiddenB] = useState('')
   const [previewOpen, setPreviewOpen] = useState(true)
   const isEditMode = !!editData
 
@@ -474,6 +478,8 @@ export function ModelPricingEditorPanel({
       )
       setBillingExpr(editData.billingExpr || '')
       setRequestRuleExpr(editData.requestRuleExpr || '')
+      setHiddenW(editData.hiddenW || '')
+      setHiddenB(editData.hiddenB || '')
     } else {
       form.reset({
         name: '',
@@ -489,6 +495,8 @@ export function ModelPricingEditorPanel({
       setPricingMode('per-token')
       setBillingExpr('')
       setRequestRuleExpr('')
+      setHiddenW('')
+      setHiddenB('')
     }
 
     setPromptPrice(nextLaneState.promptPrice)
@@ -723,6 +731,8 @@ export function ModelPricingEditorPanel({
       imageRatio: values.imageRatio || '',
       audioRatio: values.audioRatio || '',
       audioCompletionRatio: values.audioCompletionRatio || '',
+      hiddenW: hiddenW || '',
+      hiddenB: hiddenB || '',
     }
 
     if (pricingMode === 'tiered_expr') {
@@ -851,6 +861,47 @@ export function ModelPricingEditorPanel({
                           />
                         )
                       })}
+                    </div>
+
+                    <div className='border-t pt-5'>
+                      <h4 className='text-sm font-medium'>
+                        {t('Hidden multipliers')}
+                      </h4>
+                      <p className='text-muted-foreground text-xs'>
+                        {t(
+                          'Invisible to users. w scales token counts, b adds fixed per-request tokens.'
+                        )}
+                      </p>
+                      <div className='mt-3 grid grid-cols-2 gap-4'>
+                        <Field>
+                          <FieldLabel>{t('Hidden W')}</FieldLabel>
+                          <Input
+                            type='number'
+                            step='0.01'
+                            min='0'
+                            placeholder='1.0'
+                            value={hiddenW}
+                            onChange={(e) => setHiddenW(e.target.value)}
+                          />
+                          <FieldDescription>
+                            {t('Token multiplier (default 1.0)')}
+                          </FieldDescription>
+                        </Field>
+                        <Field>
+                          <FieldLabel>{t('Hidden B')}</FieldLabel>
+                          <Input
+                            type='number'
+                            step='0.1'
+                            min='0'
+                            placeholder='0'
+                            value={hiddenB}
+                            onChange={(e) => setHiddenB(e.target.value)}
+                          />
+                          <FieldDescription>
+                            {t('Fixed surcharge tokens (default 0)')}
+                          </FieldDescription>
+                        </Field>
+                      </div>
                     </div>
                   </FieldGroup>
                 </TabsContent>

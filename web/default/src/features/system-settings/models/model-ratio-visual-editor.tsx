@@ -76,6 +76,7 @@ type ModelRatioVisualEditorProps = {
   imageRatio: string
   audioRatio: string
   audioCompletionRatio: string
+  hiddenModelRatio: string
   billingMode: string
   billingExpr: string
   onChange: (field: string, value: string) => void
@@ -91,6 +92,8 @@ type ModelRow = {
   imageRatio?: string
   audioRatio?: string
   audioCompletionRatio?: string
+  hiddenW?: string
+  hiddenB?: string
   billingMode?: string
   billingExpr?: string
   requestRuleExpr?: string
@@ -291,6 +294,12 @@ export const ModelRatioVisualEditor = memo(
         audioCompletionRatio,
         { fallback: {}, context: 'audio completion ratios' }
       )
+      const hiddenModelRatioMap = safeJsonParse<
+        Record<string, { w: number; b: number }>
+      >(hiddenModelRatio, {
+        fallback: {},
+        context: 'hidden model ratios',
+      })
       const billingModeMap = safeJsonParse<Record<string, string>>(
         billingMode,
         {
@@ -315,6 +324,7 @@ export const ModelRatioVisualEditor = memo(
         ...Object.keys(imageMap),
         ...Object.keys(audioMap),
         ...Object.keys(audioCompletionMap),
+        ...Object.keys(hiddenModelRatioMap),
         ...Object.keys(billingModeMap),
         ...Object.keys(billingExprMap),
       ])
@@ -328,6 +338,10 @@ export const ModelRatioVisualEditor = memo(
         const image = imageMap[name]?.toString() || ''
         const audio = audioMap[name]?.toString() || ''
         const audioCompletion = audioCompletionMap[name]?.toString() || ''
+        const hiddenW =
+          hiddenModelRatioMap[name]?.w?.toString() || ''
+        const hiddenB =
+          hiddenModelRatioMap[name]?.b?.toString() || ''
 
         const modeForModel = billingModeMap[name]
         if (modeForModel === 'tiered_expr') {
@@ -350,6 +364,8 @@ export const ModelRatioVisualEditor = memo(
             imageRatio: image,
             audioRatio: audio,
             audioCompletionRatio: audioCompletion,
+            hiddenW,
+            hiddenB,
             hasConflict: false,
           }
         }
@@ -364,6 +380,8 @@ export const ModelRatioVisualEditor = memo(
           imageRatio: image,
           audioRatio: audio,
           audioCompletionRatio: audioCompletion,
+          hiddenW,
+          hiddenB,
           billingMode: price !== '' ? 'per-request' : 'per-token',
           hasConflict:
             price !== '' &&
@@ -387,6 +405,7 @@ export const ModelRatioVisualEditor = memo(
       imageRatio,
       audioRatio,
       audioCompletionRatio,
+      hiddenModelRatio,
       billingMode,
       billingExpr,
     ])
@@ -518,8 +537,25 @@ export const ModelRatioVisualEditor = memo(
         delete imageMap[name]
         delete audioMap[name]
         delete audioCompletionMap[name]
+        delete hiddenModelRatioMap[name]
         delete billingModeMap[name]
         delete billingExprMap[name]
+
+        // Hidden W/B for batch copy: copy from editData
+        const hasHiddenW =
+          editData?.hiddenW !== undefined &&
+          editData?.hiddenW !== '' &&
+          Number.isFinite(parseFloat(editData.hiddenW))
+        const hasHiddenB =
+          editData?.hiddenB !== undefined &&
+          editData?.hiddenB !== '' &&
+          Number.isFinite(parseFloat(editData.hiddenB))
+        if (hasHiddenW || hasHiddenB) {
+          hiddenModelRatioMap[name] = {
+            w: hasHiddenW ? parseFloat(editData!.hiddenW!) : 1.0,
+            b: hasHiddenB ? parseFloat(editData!.hiddenB!) : 0,
+          }
+        }
 
         onChange('ModelPrice', JSON.stringify(priceMap, null, 2))
         onChange('ModelRatio', JSON.stringify(ratioMap, null, 2))
@@ -531,6 +567,10 @@ export const ModelRatioVisualEditor = memo(
         onChange(
           'AudioCompletionRatio',
           JSON.stringify(audioCompletionMap, null, 2)
+        )
+        onChange(
+          'HiddenModelRatio',
+          JSON.stringify(hiddenModelRatioMap, null, 2)
         )
         onChange(
           'billing_setting.billing_mode',
@@ -550,6 +590,7 @@ export const ModelRatioVisualEditor = memo(
         imageRatio,
         audioRatio,
         audioCompletionRatio,
+        hiddenModelRatio,
         billingMode,
         billingExpr,
         onChange,
@@ -736,6 +777,12 @@ export const ModelRatioVisualEditor = memo(
           audioCompletionRatio,
           { fallback: {}, silent: true }
         )
+        const hiddenModelRatioMap = safeJsonParse<
+          Record<string, { w: number; b: number }>
+        >(hiddenModelRatio, {
+          fallback: {},
+          silent: true,
+        })
         const billingModeMap = safeJsonParse<Record<string, string>>(
           billingMode,
           { fallback: {}, silent: true }
@@ -764,8 +811,25 @@ export const ModelRatioVisualEditor = memo(
           delete imageMap[name]
           delete audioMap[name]
           delete audioCompletionMap[name]
+          delete hiddenModelRatioMap[name]
           delete billingModeMap[name]
           delete billingExprMap[name]
+
+          // Hidden W/B: store as object {w, b} or remove if both empty
+          const hasHiddenW =
+            data.hiddenW !== undefined &&
+            data.hiddenW !== '' &&
+            Number.isFinite(parseFloat(data.hiddenW))
+          const hasHiddenB =
+            data.hiddenB !== undefined &&
+            data.hiddenB !== '' &&
+            Number.isFinite(parseFloat(data.hiddenB))
+          if (hasHiddenW || hasHiddenB) {
+            hiddenModelRatioMap[name] = {
+              w: hasHiddenW ? parseFloat(data.hiddenW!) : 1.0,
+              b: hasHiddenB ? parseFloat(data.hiddenB!) : 0,
+            }
+          }
 
           if (data.billingMode === 'tiered_expr') {
             const combined = combineBillingExpr(
@@ -799,6 +863,22 @@ export const ModelRatioVisualEditor = memo(
             setIfPresent(audioMap, name, data.audioRatio)
             setIfPresent(audioCompletionMap, name, data.audioCompletionRatio)
           }
+
+          // Hidden W/B: store as object {w, b} or remove if both empty
+          const hasHiddenW =
+            data.hiddenW !== undefined &&
+            data.hiddenW !== '' &&
+            Number.isFinite(parseFloat(data.hiddenW))
+          const hasHiddenB =
+            data.hiddenB !== undefined &&
+            data.hiddenB !== '' &&
+            Number.isFinite(parseFloat(data.hiddenB))
+          if (hasHiddenW || hasHiddenB) {
+            hiddenModelRatioMap[name] = {
+              w: hasHiddenW ? parseFloat(data.hiddenW!) : 1.0,
+              b: hasHiddenB ? parseFloat(data.hiddenB!) : 0,
+            }
+          }
         })
 
         onChange('ModelPrice', JSON.stringify(priceMap, null, 2))
@@ -812,6 +892,11 @@ export const ModelRatioVisualEditor = memo(
           'AudioCompletionRatio',
           JSON.stringify(audioCompletionMap, null, 2)
         )
+        onChange(
+          'HiddenModelRatio',
+          JSON.stringify(hiddenModelRatioMap, null, 2)
+        )
+
         onChange(
           'billing_setting.billing_mode',
           JSON.stringify(billingModeMap, null, 2)
@@ -830,6 +915,7 @@ export const ModelRatioVisualEditor = memo(
         imageRatio,
         audioRatio,
         audioCompletionRatio,
+        hiddenModelRatio,
         billingMode,
         billingExpr,
         onChange,
