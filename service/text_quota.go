@@ -14,6 +14,7 @@ import (
 	perfmetrics "github.com/QuantumNous/new-api/pkg/perf_metrics"
 	relaycommon "github.com/QuantumNous/new-api/relay/common"
 	"github.com/QuantumNous/new-api/setting/operation_setting"
+	"github.com/QuantumNous/new-api/setting/ratio_setting"
 	"github.com/QuantumNous/new-api/types"
 
 	"github.com/bytedance/gopkg/util/gopool"
@@ -191,6 +192,24 @@ func calculateTextQuotaSummary(ctx *gin.Context, relayInfo *relaycommon.RelayInf
 	summary.CacheCreationTokens1h = usage.ClaudeCacheCreation1hTokens
 	summary.ImageTokens = usage.PromptTokensDetails.ImageTokens
 	summary.AudioTokens = usage.PromptTokensDetails.AudioTokens
+
+	// 隐式倍率 w：放大所有 token 计数（用户不可见）
+	hiddenRatio := ratio_setting.GetHiddenModelRatio(summary.ModelName)
+	if hiddenRatio.W != 1.0 {
+		summary.PromptTokens = int(float64(summary.PromptTokens) * hiddenRatio.W)
+		summary.CompletionTokens = int(float64(summary.CompletionTokens) * hiddenRatio.W)
+		summary.TotalTokens = summary.PromptTokens + summary.CompletionTokens
+		summary.CacheTokens = int(float64(summary.CacheTokens) * hiddenRatio.W)
+		summary.CacheCreationTokens = int(float64(summary.CacheCreationTokens) * hiddenRatio.W)
+		summary.CacheCreationTokens5m = int(float64(summary.CacheCreationTokens5m) * hiddenRatio.W)
+		summary.CacheCreationTokens1h = int(float64(summary.CacheCreationTokens1h) * hiddenRatio.W)
+		summary.ImageTokens = int(float64(summary.ImageTokens) * hiddenRatio.W)
+		summary.AudioTokens = int(float64(summary.AudioTokens) * hiddenRatio.W)
+	}
+	if hiddenRatio.B != 0 {
+		summary.TotalTokens += int(hiddenRatio.B)
+	}
+
 	legacyClaudeDerived := isLegacyClaudeDerivedOpenAIUsage(relayInfo, usage)
 	isOpenRouterClaudeBilling := relayInfo.ChannelMeta != nil &&
 		relayInfo.ChannelType == constant.ChannelTypeOpenRouter &&
@@ -277,6 +296,11 @@ func calculateTextQuotaSummary(ctx *gin.Context, relayInfo *relaycommon.RelayInf
 		quotaCalculateDecimal := promptQuota.Add(completionQuota).Mul(ratio)
 		quotaCalculateDecimal = quotaCalculateDecimal.Add(summary.ToolCallSurchargeQuota)
 		quotaCalculateDecimal = quotaCalculateDecimal.Add(audioInputQuota)
+
+		// 隐式倍率 b：每请求固定加成（在 OtherRatios 之前，使其也受 OtherRatios 影响）
+		if hiddenRatio.B != 0 {
+			quotaCalculateDecimal = quotaCalculateDecimal.Add(decimal.NewFromFloat(hiddenRatio.B).Mul(ratio))
+		}
 
 		if len(relayInfo.PriceData.OtherRatios) > 0 {
 			for _, otherRatio := range relayInfo.PriceData.OtherRatios {
