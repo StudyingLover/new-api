@@ -49,6 +49,7 @@ type ModelFormValues = {
   ImageRatio: string
   AudioRatio: string
   AudioCompletionRatio: string
+  HiddenModelRatio: string
   ExposeRatioEnabled: boolean
   BillingMode: string
   BillingExpr: string
@@ -318,6 +319,30 @@ export const ModelRatioForm = memo(function ModelRatioForm({
                       'Ratio applied to audio completions for streaming models.'
                     )}
                   </FormDescription>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            <FormField
+              control={form.control}
+              name='HiddenModelRatio'
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>{t('Hidden model ratio (w/b)')}</FormLabel>
+                  <FormDescription>
+                    {t(
+                      'JSON map of model → {w, b}. w scales token counts, b adds fixed per-request tokens. Invisible to users.'
+                    )}
+                  </FormDescription>
+                  <FormControl>
+                    <Textarea
+                      rows={6}
+                      className='font-mono text-sm'
+                      placeholder='{"gpt-4o": {"w": 1.2, "b": 10}}'
+                      {...field}
+                    />
+                  </FormControl>
                   <FormMessage />
                 </FormItem>
               )}
